@@ -2,11 +2,12 @@ const express = require('express');
 const dotenv = require('dotenv');
 dotenv.config({path: './config/config.env'});
 const connectDB = require('./config/db');
+const morgan = require('morgan');
 const colors = require('colors');
 
 const app = express();
 
-connectDB();
+app.use(morgan('dev'));
 
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));

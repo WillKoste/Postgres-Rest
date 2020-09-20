@@ -1,15 +1,12 @@
-const pool = require('../utls/pool');
 const colors = require('colors');
+const {Pool} = require('pg');
 
-const connectDB = async () => {
-	try {
-		pool;
+const pool = new Pool({
+	user: process.env.PG_USER,
+	password: process.env.PG_PASSWORD,
+	host: process.env.PG_HOST,
+	port: process.env.PH_PORT,
+	database: process.env.PG_DATABASE
+});
 
-		console.log(`Postgres is running, good job Will! So freaking cool!`.magenta.bold);
-	} catch (err) {
-		console.error(err);
-		process.exit(1);
-	}
-};
-
-module.exports = connectDB;
+module.exports = pool;
