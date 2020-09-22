@@ -45,7 +45,7 @@ router.post('/', [check('firstName').not().isEmpty(), check('email').isEmail()],
 	try {
 		let user = await pool.query(`INSERT INTO users (firstName, lastName, age, email, hobby, job) VALUES ($1, $2, $3, $4, $5, $6)`, [firstName, lastName, age, email, hobby, job]);
 
-		res.status(201).json({success: true, user});
+		res.status(201).json({success: true, msg: 'User created!'});
 	} catch (err) {
 		console.error(err);
 		res.status(400).json({success: false, msg: 'Bad request, please try again'});
