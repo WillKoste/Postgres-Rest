@@ -15,6 +15,8 @@ app.use(express.urlencoded({extended: false}));
 app.use('/api/users', require('./routes/users'));
 app.use('/api/posts', require('./routes/posts'));
 app.use('/api/comments', require('./routes/comments'));
+app.use('/api/favorites', require('./routes/favorites'));
+app.use('/api/friends', require('./routes/friends'));
 
 app.use(helmet());
 
